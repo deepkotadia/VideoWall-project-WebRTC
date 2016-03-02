@@ -2,6 +2,7 @@
 
 
 
+
 var Deep = document.getElementById('Deep');
 var Omer = document.getElementById('Omer');
 var hangUpButton =   document.getElementById('hangupButton');
@@ -36,7 +37,8 @@ servers = null;
       var cfg = {'iceServers': [{'url': 'stun:23.21.150.121'}]};
       var con = { 'optional': [{'DtlsSrtpKeyAgreement': true}] };
 
-  var pc1 = new RTCPeerConnection(null, null);
+  var pc1 = new RTCPeerConnection(null, null);//deep
+  var pc2 = new RTCPeerConnection(null, null);//omer
 
 
 var sdpConstraints = {
@@ -74,16 +76,11 @@ var sdpConstraints = {
 /*
 the call button will focus on signaling 
     -the reason webrtc doesnt do signaling is so someone can choose their protocol
-
-
-
 Caller must
-
     1) create an RTCPeerConnection
     2  create an offer by using the createOffer() method
     3) client calls setLocalDescription with offer 
     4) stringify the offer and use signaling mechanism to send to ever
-
 Calle must:
 */
 
@@ -177,28 +174,41 @@ hangupButton.disabled = false;
 
 navigator.getMedia({
 
-	video : true,
-	audio : false
+  video : true,
+  audio : false
 
-}
-
-      function(stream){
+},function(stream){
           
              console.log(stream);
              localVideo.src = vendorUrl.createObjectURL(stream);
              localVideo.play();
-
              pc2.addStream(stream);
 
       },function(error){
         console.log('Error adding stream to pc2: ' + error)
       });
 
+  var deepsinformation = "";
+
+  var offerDesc = new RTCSessionDescription(JSON.parse(deepsinformation));
+  console.log('Received remote offer', offerDesc);
+
+
+  
+
+
+  pc2.setRemoteDescription(offerDesc);
+  pc2.setLocalDescription(answerDesc);
+
+
+
+
+
 }
 
 
 function hangup(){
-	Deep.disabled = true;
-	hangupButton.disabled = true;
-	Omer.disabled = false;
+  Deep.disabled = true;
+  hangupButton.disabled = true;
+  Omer.disabled = false;
 }
