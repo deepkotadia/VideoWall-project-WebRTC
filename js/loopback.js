@@ -108,8 +108,8 @@ Calle must:
 
   function Deep(){
 
-    callButton.disabled = true;
-    hangUpButton.disabled = false;
+    Deep.disabled = true;
+    Omer.disabled = false;
     
     //this is all for the function getmedia    
        navigator.getMedia({
@@ -173,7 +173,7 @@ pc1.onicecandidate = function (e) {
 
 
   function hangup(){
-      callButton.disabled = true;
+      Deep.disabled = true;
       hangUpButton.disabled = true;
-      startButton.disabled = false;
+      Omer.disabled = true;
   }
