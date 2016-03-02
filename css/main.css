@@ -1,0 +1,46 @@
+body{
+  background-color: #E80C1E ;
+}
+
+
+button {
+  margin: 0 10px 0 0;
+  width: 83px;
+}
+
+
+video {
+  height: 225px;
+  margin: 0 0 20px 0;
+  vertical-align: top;
+  width: calc(50% - 12px);
+}
+
+video#localVideo {
+  margin: 0 20px 20px 0;
+}
+
+video#remoteVideo{
+  margin: 0 10222px 20px 0;
+}
+
+div#userInterface {
+text-align: center;
+}
+
+
+.booth{
+   width:400px;
+  background: #ccc;
+  border: 10px solid #ddd;
+  margin: 0 auto; 
+}
+
+
+.userInterface {
+  width:300px;
+  background: #ccc;
+  border: 10px solid #ddd;
+  margin: 0 auto; 
+}
+
