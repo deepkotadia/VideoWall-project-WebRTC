@@ -167,13 +167,38 @@ pc1.onicecandidate = function (e) {
 
 
 
+//RECEIVER SIDE----------------------------------------------
 
 
+function Omer(){
+
+Omer.disabled = true;
+hangupButton.disabled = false;
+
+navigator.getMedia({
+
+	video : true,
+	audio : false
+
+}
+
+      function(stream){
+          
+             console.log(stream);
+             localVideo.src = vendorUrl.createObjectURL(stream);
+             localVideo.play();
+
+             pc2.addStream(stream);
+
+      },function(error){
+        console.log('Error adding stream to pc2: ' + error)
+      });
+
+}
 
 
-
-  function hangup(){
-      Deep.disabled = true;
-      hangUpButton.disabled = true;
-      Omer.disabled = true;
-  }
+function hangup(){
+	Deep.disabled = true;
+	hangupButton.disabled = true;
+	Omer.disabled = false;
+}
