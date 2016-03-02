@@ -31,9 +31,9 @@ servers = null;
       callButton.disabled = false;
   }
 
-
-
-
+var cfg = {'iceServers': [{'url': 'stun:23.21.150.121'}]};
+var con = { 'optional': [{'DtlsSrtpKeyAgreement': true}] };
+var pc1 = new RTCPeerConnection(cfg, con),
 
 
 //------------------------------------------------------------------------------
