@@ -19,9 +19,9 @@ hangUpButton.disabled = true;
 
 Deep.disabled = false;
 
-Deep.onclick = Deep; //go to function start 
+Deep.onclick = DeepF; //go to function start 
 
-Omer.onclick = Omer; //go to function call
+Omer.onclick = OmerF; //go to function call
 
 hangUpButton.onclick = hangup; //go to function hangup
 
@@ -45,8 +45,6 @@ var sdpConstraints = {
   "offerToReceiveAudio":true,
   "offerToReceiveVideo":true
 }
-
-
 
 
 
@@ -103,7 +101,11 @@ Calle must:
 
 
 
-  function Deep(){
+  function DeepF(){
+
+    console.log('hey');
+
+
 
     Deep.disabled = true;
     Omer.disabled = false;
@@ -167,7 +169,7 @@ pc1.onicecandidate = function (e) {
 //RECEIVER SIDE----------------------------------------------
 
 
-function Omer(){
+function OmerF(){
 
 Omer.disabled = true;
 hangupButton.disabled = false;
