@@ -17,7 +17,7 @@ Omer.disabled = false;
 
 hangUpButton.disabled = true;
 
-deep.disabled = false;
+Deep.disabled = false;
 
 Deep.onclick = Deep; //go to function start 
 
