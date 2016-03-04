@@ -235,10 +235,22 @@ navigator.getMedia({
 
   
   
-   pc2.setLocalDescription(omerSessDes);
+
+
+  
+
 
   pc2.setRemoteDescription(deepSessDes);
 
+
+
+   pc2.createAnswer(function (deepSessDes) {
+    writeToChatLog('Created local answer', 'text-success')
+    console.log('Created local answer: ', deepSessDes)
+    pc2.setLocalDescription(deepSessDes)
+  },
+  function () { console.warn("Couldn't create offer") },
+  sdpConstraints)
 
 
 
