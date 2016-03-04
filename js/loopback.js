@@ -3,7 +3,6 @@ var Deep = document.getElementById('Deep');
 var Omer = document.getElementById('Omer');
 
 var hangUpButton =   document.getElementById('hangupButton');
-
 var localVideo = document.getElementById('localVideo'),
 
 vendorUrl = window.URL || window.webkitURL;
@@ -49,6 +48,29 @@ var deepSessDes = new RTCSessionDescription(JSON.parse(deepsinformation));
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+pc1.onaddstream = handleOnaddstream;
+pc2.onaddstream = handleOnaddstream;
+
+function handleOnaddstream (e) {
+  console.log('Got remote stream', e.stream)
+  var el = document.getElementById('remoteVideo')
+  el.autoplay = true
+  attachMediaStream(el, e.stream)
+}
 
 
 
