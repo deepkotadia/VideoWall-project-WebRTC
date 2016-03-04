@@ -27,8 +27,8 @@ navigator.getMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || n
       var cfg = {'iceServers': [{'url': 'stun:23.21.150.121'}]};
       var con = { 'optional': [{'DtlsSrtpKeyAgreement': true}] };
       
-  var pc1 = new RTCPeerConnection(null, null);//deep
-  var pc2 = new RTCPeerConnection(null, null);//omer
+  var pc1 = new RTCPeerConnection(cfg, con);//deep
+  var pc2 = new RTCPeerConnection(cfg, con);//omer
 
 var sdpConstraints = {
   "offerToReceiveAudio":true,
