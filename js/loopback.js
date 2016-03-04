@@ -147,15 +147,15 @@ Calle must:
 
  
            //----this is all a function call for create offer
-            pc1.createOffer(function (desc) {
-                  pc1.setLocalDescription(desc, function () {}, function () {}) //set deep's local description
+            pc1.createOffer(function (deepSessDes) {
+                  pc1.setLocalDescription(deepSessDes, function () {}, function () {}) //set deep's local description
                  console.log('created local offer', desc)
             },
             function () { console.warn("Couldn't create offer") },
             sdpConstraints)
             
             
-            pc1.setLocalDescription(deepSessDes);
+      
             
             
           //---------------------------------------------------
