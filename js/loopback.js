@@ -62,14 +62,40 @@ var deepSessDes = new RTCSessionDescription(JSON.parse(deepsinformation));
 
 
 
-pc1.onaddstream = handleOnaddstream;
+
 pc2.onaddstream = handleOnaddstream;
 
+pc1.onsignalingstatechange = onsignalingstatechange
+pc1.oniceconnectionstatechange = oniceconnectionstatechange
+pc1.onicegatheringstatechange = onicegatheringstatechange
+pc1.onaddstream = handleOnaddstream;
+
+
+
+pc2.onsignalingstatechange = onsignalingstatechange
+pc2.oniceconnectionstatechange = oniceconnectionstatechange
+pc2.onicegatheringstatechange = onicegatheringstatechange
+pc2.onaddstream = handleOnaddstream;
+
+function onsignalingstatechange (state) {
+  console.info('signaling state change:', state)
+}
+
+function onicegatheringstatechange (state) {
+  console.info('ice gathering state change:', state)
+}
+
+function onicegatheringstatechange (state) {
+  console.info('ice gathering state change:', state)
+}
+
+//something with vendor urls
 function handleOnaddstream (e) {
   console.log('Got remote stream', e.stream)
-  var el = document.getElementById('remoteVideo')
-  el.autoplay = true
-  attachMediaStream(el, e.stream)
+
+  remoteVideo.autoplay = true
+  attachMediaStream(remoteVideo, e.stream)
+  remoteVideo.src = vendorUrl.createObjectURL(e.stream);
 }
 
 
@@ -133,6 +159,10 @@ Calle must:
              
              //----ERROR PC1 IS NOT DEFINED
              pc1.addStream(stream);
+            console.log(stream);
+            console.log('adding stream to pc1');
+
+
  
            //----this is all a function call for create offer
             pc1.createOffer(function (desc) {
